@@ -16,25 +16,39 @@
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
+    <script src="https://cdn.jsdelivr.net/npm/darkreader"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="../static/styles/main.js"></script>
     <title>{{ title }}</title>
 </head>
 
 <body>
-    <header class="nav-bar">
-        <div class="nav-content">
-            <a href="/">
-                <div class="nav-logo">
-                    <img src="./static/img/logo.svg" />
+    <nav>
+        <h1>Welcome to our portfolio site!</h1>
+        <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#map">Map</a></li>
+            <li>
+                <div class="toggle-mode">
+                    <i id="mode-icon" class="fas fa-moon"></i>
                 </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="profiles">
+        <div class="profile">
+            <a href="about.html">
+                <img src="https://picsum.photos/1200/1200" alt="Profile 1">
+                <figcaption>About Me</figcaption>
             </a>
         </div>
-    </header>
-
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg">
+        <div class="divider"></div>
+        <div class="profile">
+            <a href="about.html">
+                <img src="https://picsum.photos/1200/1200" alt="Profile 2">
+                <figcaption>About Me</figcaption>
+            </a>
         </div>
-        <h1>{{ title }}</h1>
     </div>
 </body>
 </html>
