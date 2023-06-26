@@ -2,10 +2,14 @@ p, h1, h2, h3, h4, h5, h6, button {
     font-family: "Roboto", serif;
 }
 
+img {
+    width: 100%;
+}
+
 body {
     background-color: #f5f5f9;
     background-size: cover;
-    width: auto; 
+    width: auto;
     overflow-x: hidden;
     font-family: "Roboto", serif;
     margin: 0px;
@@ -34,7 +38,13 @@ body {
 .nav-logo {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.nav-logo i {
+    margin-right: 10px;
+    font-size: 2.5rem;
+    color: white;
 }
 
 .nav-logo img {
@@ -68,10 +78,69 @@ body {
         max-height: 100%;
         margin-left: auto;
         margin-right: auto;
-        display: block;        
+        display: block;
         padding: 20px;
 }
 
+.profile-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-image {
+    position: relative;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-image img {
+    width: 100%;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+}
+
+.profile-image:hover .overlay {
+    height: 100%;
+    opacity: 1;
+}
+
+.overlay h2 {
+    color: white;
+}
+
+.about-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.about-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
 .profile .profile-picture {
     margin-bottom: 30px;
     height: 200px;
@@ -94,4 +163,22 @@ body {
     color: white;
     font-size: 50px;
     font-weight: 700;
+}
+
+.dark-mode {
+    background-color: #18191A;
+    color: #E4E6EB;
+}
+
+.dark-mode .nav-bar {
+    background-color: #242526;
+}
+
+.dark-mode .footer {
+    background-color: #242526;
+    color: #E4E6EB;
+}
+
+.dark-mode .toggle-mode img {
+    filter: invert(1);
 }
