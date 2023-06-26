@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/shengyuan.png" />
-        </div>
-        <p>Shengyuan</p>
-    </div>
 
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg" />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div>
+                <img src="./static/img/shengyuan.png" />
+            </div>
+            <p>Shengyuan</p>
         </div>
-        <p>Rami</p>
+        <div class="col">
+            <div>
+                <img src="./static/img/logo.jpg" />
+            </div>
+            <p>Rami</p>
+        </div>
     </div>
+</div>
+
 {% endblock %}
