@@ -178,3 +178,7 @@ body {
 .dark-mode .toggle-mode img {
     filter: invert(1);
 }
+
+.dark-blue {
+    color: #1C539F;
+}
