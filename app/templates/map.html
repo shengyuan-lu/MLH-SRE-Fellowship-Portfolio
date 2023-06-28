@@ -1,1 +1,6 @@
-<h1>This is a Map.</h1>
+<h2> Map of Visited Places </h2>
+<div id="placesData" style="display: none;">{{ visited_places | tojson | safe }}</div>
+<div id="map">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap"></script>
+</div>
+

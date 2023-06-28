@@ -2,12 +2,10 @@ import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
 
-
-load_dotenv()
-
+load_dotenv('example.env')
 
 app = Flask(__name__)
-
+app.config['GOOGLE_MAPS_API_KEY'] = os.getenv("google_maps_api_key")
 
 @app.route('/')
 def index():
@@ -31,14 +29,25 @@ def shengyuan():
         {'company': 'Zoom Video Communications', 'position': 'Software Quality Assurance Intern', 'duration': 'July 2021 - Sept 2021'}
     ]
 
-    return render_template('fellow.html', title="Fellow - Shengyuan Lu", fellowname=fellowname, aboutme=aboutme, education=education, work_experiences=work_experiences, url=os.getenv("URL"))
+    hobbies = [
+        {"title": "Photography", "description": "I love capturing precious moments", "img": "shengyuan-photography.jpeg"}
+    ]
+
+    visited_places = [
+        {'city': 'San Francisco', 'country': 'USA'},
+        {'city': 'Los Angeles', 'country': 'USA'},
+        {'city': 'New York City', 'country': 'USA'},
+        {'city': 'Seattle', 'country': 'USA'},
+    ]
+
+    return render_template('fellow.html', title="Fellow - Shengyuan Lu", fellowname=fellowname, aboutme=aboutme, education=education, work_experiences=work_experiences, hobbies=hobbies, visited_places=visited_places, google_maps_api_key=app.config['GOOGLE_MAPS_API_KEY'], url=os.getenv("URL"))
 
 @app.route('/rami')
 def rami():
 
     fellowname = "Rami Elsayed"
 
-    aboutme = "Hi! I am Rami, a motivated and ambitious rising sophomore studying Computer Science at the University of Wisconsin - Madison. I have a deep passion for creating and tinkering with technology whether it's developing full-stack applications, designing systems programs, or crafting mobile apps."
+    aboutme = "I am a motivated and ambitious rising sophomore studying Computer Science at the University of Wisconsin - Madison. I have a deep passion for creating and tinkering with technology, whether it's developing full-stack applications, designing systems programs, or crafting mobile apps. The ability to bring ideas to life through my own skills and designs is incredibly fulfilling to me. I am driven by my love for technology and constantly seek out new opportunities to expand my knowledge and expertise. Nice to meet you 😊!"
 
     work_experiences = [
         {'company': 'Major League Hacking', 'position': 'Production Engineering Fellow', 'duration': 'June 2023 - Present'},
@@ -49,7 +58,21 @@ def rami():
         {'institution': 'University of Wisconsin, Madison', 'degree': 'Bachelor of Science, Computer Science', 'year': '2022 - 2026'},
     ]
 
-    return render_template('fellow.html', title="Fellow - Rami Elsayed",  fellowname=fellowname, aboutme=aboutme, education=education, work_experiences=work_experiences, url=os.getenv("URL"))
+    hobbies = [
+        {"title": "Watching Mini-Documentaries", "description": "Easy way to learn more", "img": "rami-miniDoc.jpg"},
+        {"title": "Gaming", "description": "I love immersing myself in a new world", "img": "rami-gaming.jpeg"}
+    ]
 
+    visited_places = [
+        {'city': 'Khartoum', 'country': 'Sudan'},
+        {'city': 'Chicago', 'country': 'USA'},
+        {'city': 'Doha', 'country': 'Qatar'},
+        {'city': 'Jeddah', 'country': 'Saudi Arabia'},
+        {'city': 'New York City', 'country': 'USA'},
+        {'city': 'Cairo', 'country': 'Egypt'},
+        {'city': 'Milwaukee', 'country': 'USA'},
+    ]
+
+    return render_template('fellow.html', title="Fellow - Shengyuan Lu", fellowname=fellowname, aboutme=aboutme, education=education, work_experiences=work_experiences, hobbies=hobbies, visited_places=visited_places, google_maps_api_key=app.config['GOOGLE_MAPS_API_KEY'],url=os.getenv("URL"))
 if __name__ == '__main__':
     app.run(debug=True)
