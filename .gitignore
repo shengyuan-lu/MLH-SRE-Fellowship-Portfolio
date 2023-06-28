@@ -7,3 +7,4 @@ flask.sqlite
 .DS_Store
 
 .idea/
+example.env
