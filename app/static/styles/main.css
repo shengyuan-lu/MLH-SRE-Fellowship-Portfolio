@@ -20,7 +20,7 @@ body {
     display: inline-block;
     background-color: #1C539F;
     font-family: "Roboto", serif;
-    font-weight: 700 !important;
+    font-weight: 500 !important;
     padding-top: 10px;
 }
 
@@ -36,6 +36,8 @@ body {
 }
 
 .nav-logo {
+    margin-left: 20px;
+    margin-right: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
