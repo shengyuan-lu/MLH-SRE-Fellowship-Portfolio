@@ -1,0 +1,12 @@
+{% block content %}
+
+    <div id="edu" class="mt-4">
+        <h3>Education</h3>
+        <ul>
+            {% for edu in education %}
+                <li>{{ edu.institution }} - {{ edu.degree }} ({{ edu.year }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

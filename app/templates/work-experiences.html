@@ -1,0 +1,12 @@
+{% block content %}
+
+    <div id="exp" class="mt-4">
+        <h3>Work Experiences</h3>
+        <ul>
+            {% for experience in work_experiences %}
+                <li>{{ experience.company }} - {{ experience.position }} ({{ experience.duration }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
