@@ -1,12 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block header %} {% include 'main-header.html' %} {%
+endblock%} {% block body %}
 
-{% block header %}
-
-    {% include 'main-header.html' %}
-
-{% endblock%}
-
-{% block body %}
 <div class="container mt-4 mb-4">
     <div class="row">
         <div class="col">
@@ -21,13 +15,12 @@
                 <div class="card-body">
                     <h3 class="card-title">Shengyuan Lu</h3>
                     <p class="card-text">
-                        About Me:
-                        I am an engineer by training, a software developer by
-                        profession, and a creative artist by heart. If what I
-                        want doesn’t exist, I build it from scratch. From the
-                        chemistry board game I designed in high school to my
-                        newest iOS app ZotMeal, I am obsessed with turning ideas
-                        into reality.
+                        About Me: I am an engineer by training, a software
+                        developer by profession, and a creative artist by heart.
+                        If what I want doesn’t exist, I build it from scratch.
+                        From the chemistry board game I designed in high school
+                        to my newest iOS app ZotMeal, I am obsessed with turning
+                        ideas into reality.
                     </p>
                     <a href="/shengyuan" class="btn btn-primary">Read More</a>
                 </div>
@@ -45,25 +38,18 @@
                 <div class="card-body">
                     <h3 class="card-title">Rami Elsayed</h3>
                     <p class="card-text">
-                        Hi! I am Rami, a motivated and ambitious rising 
+                        Hi! I am Rami, a motivated and ambitious rising
                         sophomore studying Computer Science at the University of
-                         Wisconsin - Madison. I have a deep passion for creating 
-                         and tinkering with technology whether it's developing 
-                         full-stack applications, designing systems programs, 
-                         or crafting mobile apps.
+                        Wisconsin - Madison. I have a deep passion for creating
+                        and tinkering with technology whether it's developing
+                        full-stack applications, designing systems programs, or
+                        crafting mobile apps.
                     </p>
                     <a href="/rami" class="btn btn-primary">Read More</a>
                 </div>
             </div>
         </div>
-        </div>
     </div>
 </div>
-{% endblock %}
 
-
-{% block footer %}
-
-    {% include 'footer.html' %}
-
-{% endblock %}
+{% endblock %} {% block footer %} {% include 'footer.html' %} {% endblock %}
