@@ -41,7 +41,7 @@ body {
     justify-content: space-between;
 }
 
-.nav-logo i {
+.toggle-mode {
     margin-right: 10px;
     font-size: 2.5rem;
     color: white;

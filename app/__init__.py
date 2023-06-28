@@ -41,9 +41,8 @@ def rami():
     aboutme = "Hi! I am Rami, a motivated and ambitious rising sophomore studying Computer Science at the University of Wisconsin - Madison. I have a deep passion for creating and tinkering with technology whether it's developing full-stack applications, designing systems programs, or crafting mobile apps."
 
     work_experiences = [
-        {'company': 'Company A', 'position': 'Position A', 'duration': '2010-2012'},
-        {'company': 'Company B', 'position': 'Position B', 'duration': '2012-2015'},
-        {'company': 'Company C', 'position': 'Position C', 'duration': '2015-2020'}
+        {'company': 'Major League Hacking', 'position': 'Production Engineering Fellow', 'duration': 'June 2023 - Present'},
+        {'company': 'Wisconsin Racing', 'position': 'Firmware Engineer', 'duration': 'Sept 2022 - Dec 2022'}
     ]
 
     education = [
