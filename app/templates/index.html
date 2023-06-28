@@ -1,4 +1,12 @@
-{% extends 'base.html' %} {% block body %}
+{% extends 'base.html' %}
+
+{% block header %}
+
+    {% include 'main-header.html' %}
+
+{% endblock%}
+
+{% block body %}
 <div class="container mt-4 mb-4">
     <div class="row">
         <div class="col">
@@ -51,4 +59,11 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+
+{% block footer %}
+
+    {% include 'footer.html' %}
+
 {% endblock %}
