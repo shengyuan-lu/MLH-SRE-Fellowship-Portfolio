@@ -5,15 +5,7 @@
 ![Screenshot 2023-06-28 at 10 15 17](https://github.com/shengyuan-lu/mlh-sre-fellowship-portfolio/assets/70995597/8f9f8cec-adb5-4c1d-88f8-7f26c44c797f)
 ![Screenshot 2023-06-28 at 10 15 10](https://github.com/shengyuan-lu/mlh-sre-fellowship-portfolio/assets/70995597/3c15aefd-0db5-4337-8b30-6e816a965a09)
 
-Welcome to the MLH Fellowship! During Week 1, you'll be using Flask to build a portfolio site. This site will be the foundation for activities we do in future weeks so spend time this week making it your own and reflect your personality!
-
 ## Tasks
-
-Once you've got your portfolio downloaded and running using the instructions below, you should attempt to complete the following tasks.
-
-For each of these tasks, you should create an [Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) and work on them in a new [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches). When the task has been completed, you should open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) and get another fellow in your pod to give you feedback before merging it in.
-
-*Note: Make sure to include a link to the Issue you're progressing on inside of your Pull Request so your reviewer knows what you're progressing on!*
 
 ### GitHub Tasks
 - [x] Create Issues for each task below
@@ -34,11 +26,6 @@ For each of these tasks, you should create an [Issue](https://docs.github.com/en
 - [x] Create a new page to display hobbies.
 - [x] Add a menu bar that dynamically displays other pages in the app
 
-
-## Getting Started
-
-You need to do all your progress here.
-
 ## Installation
 
 Make sure you have python3 and pip installed
@@ -55,9 +42,15 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all dep
 pip install -r requirements.txt
 ```
 
-## Usage
+### Setup .env
+Make sure to supply your own Google Map API Key.
+Create an `example.env` file
 
-Create a .env file using the example.env template (make a copy using the variables inside of the template)
+> URL=localhost:5000
+
+> google_maps_api_key=YOUR_API_KEY
+
+## Usage
 
 Start flask development server
 ```bash
@@ -74,11 +67,3 @@ You should get a response like this in the terminal:
 ```
 
 You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
-
-*Note: The portfolio site will only work on your local machine while you have it running inside of your terminal. We'll go through how to host it in the cloud in the next few weeks!* 
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
