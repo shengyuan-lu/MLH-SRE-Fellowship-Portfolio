@@ -6,9 +6,7 @@
 ![Screenshot 2023-06-28 at 10 15 10](https://github.com/shengyuan-lu/mlh-sre-fellowship-portfolio/assets/70995597/3c15aefd-0db5-4337-8b30-6e816a965a09)
 
 ## Installation
-
-Make sure you have python3 and pip installed
-
+Note: You need Python3 and pip installed
 Create and activate virtual environment using virtualenv
 ```bash
 $ python -m venv python3-virtualenv
