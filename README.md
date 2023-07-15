@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 
 ### Setup .env
-Make sure to supply your own Google Map API Key.
+Make sure to supply your own Google Map API Key and MySQL Database.
 Create an `example.env` file
 
 > URL=localhost:5000
