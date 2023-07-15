@@ -62,6 +62,10 @@ def get_time_line_post():
         ]
     }
 
+@app.route('/timeline', methods=['GET'])
+def timeline_post():
+    return render_template('timeline_post.html')
+
 @app.route('/shengyuan')
 def shengyuan():
 

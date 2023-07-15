@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% block header %} {% include 'main-header.html' %} {%endblock%} {% block body %}
+    
+    <div class="container mt-4">
+        <h2>Create a Timeline Post</h2>
+        <form id="timeline-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    
+        <h2>Timeline Posts</h2>
+        <div id="timeline-posts"></div>
+    
+        <script>
+            function fetchTimelinePosts() {
+                fetch('/api/timeline_post')
+                    .then(response => response.json())
+                    .then(data => {
+                        const timelinePosts = data.timeline_posts;
+                        const timelinePostsContainer = document.getElementById('timeline-posts');
+
+                        timelinePostsContainer.innerHTML = '';
+
+                        timelinePosts.forEach(post => {
+                            const postElement = document.createElement('div');
+                            postElement.classList.add('timeline-post');
+                            postElement.innerHTML = `
+                                <h4>${post.name}</h4>
+                                <p>${post.content}</p>
+                                <small>${post.created_at}</small>
+                                <hr>
+                            `;
+
+                            timelinePostsContainer.appendChild(postElement);
+                        });
+                    });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const name = form.elements.name.value;
+            const email = form.elements.email.value;
+            const content = form.elements.content.value;
+
+            const data = new FormData();
+            data.append('name', name);
+            data.append('email', email);
+            data.append('content', content);
+
+            fetch('/api/timeline_post', {
+                method: 'POST',
+                body: data
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('New timeline post created:', data);
+                    form.reset();
+                    fetchTimelinePosts();
+                })
+                .catch(error => console.error('Error creating timeline post:', error));
+        }
+
+        const form = document.getElementById('timeline-form');
+        form.addEventListener('submit', handleFormSubmit);
+
+        fetchTimelinePosts();
+        </script>
+    </div>
+    
+{% endblock %} {% block footer %} {% include 'footer.html' %} {% endblock %}
+    
