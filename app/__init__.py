@@ -1,11 +1,14 @@
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
+from peewee import *
 
 load_dotenv('example.env')
 
 app = Flask(__name__)
 app.config['GOOGLE_MAPS_API_KEY'] = os.getenv("google_maps_api_key")
+
+mydb= MySQLDatabase(os.getenv("MYSQL_DATABASE"), user=os.getenv("MYSQL_USER"), password=os.getenv("MYSQL_PASSWORD"), host=os.getenv("MYSQL_HOST"), port=3306)
 
 @app.route('/')
 def index():
