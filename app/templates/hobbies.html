@@ -2,13 +2,13 @@
     <h2>Hobbies</h2>
         <div id="hobbies" class="card-container-hobbies">
             {% for hobby in hobbies %}
-            <div class="card-hobbies bg-transparent">
-                <div class="info">
-                    <img src="{{ url_for('static', filename='img/' + hobby.img) }}" class="hobby-img"/>
-                    <h3 class="title">{{ hobby.title }}</h3>
-                    <p class="description">{{ hobby.description }}</p>
+                <div class="card-hobbies bg-transparent">
+                    <div class="info">
+                        <img src="{{ url_for('static', filename='img/' + hobby.img) }}" class="hobby-img rounded"/>
+                        <h3 class="title">{{ hobby.title }}</h3>
+                        <p class="description">{{ hobby.description }}</p>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
 </div>
