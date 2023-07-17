@@ -54,17 +54,22 @@
                 type: 'GET',
                 success: function(posts) {
                     var timelinePosts = $('#timelinePosts');
+
                     timelinePosts.empty(); // Clear the existing posts
 
-                    console.log(posts)
+                    posts = posts["timeline_posts"]
 
                     // Append the new posts
                     for (var i = 0; i < posts.length; i++) {
-                        var post = posts[i];
+
+                        var post = posts[i]
+
+                        console.log(post)
+
                         var listItem = $('<li class="list-group-item">');
-                        var name = $('<h3>').text(post.name);
-                        var email = $('<p><strong>Email:</strong> ' + post.email + '</p>');
-                        var content = $('<p>').text(post.content);
+                        var name = $('<h3>' + post["name"] + '</h3>');
+                        var email = $('<p><strong>Email:</strong> ' + post["email"] + '</p>');
+                        var content = $('<p>' + post["content"] + '</p>');
 
                         listItem.append(name);
                         listItem.append(email);
