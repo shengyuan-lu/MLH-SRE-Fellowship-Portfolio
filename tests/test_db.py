@@ -4,8 +4,9 @@ import os
 import unittest
 from peewee import *
 
-from app import TimelinePost
 os.environ['TESTING'] = 'True'
+
+from app import TimelinePost
 
 MODELS = [TimelinePost]
 
@@ -33,9 +34,12 @@ class TestTimelinePost(unittest.TestCase):
     def test_timeline_post(self):
         # Create 2 timeline posts
         first_post = TimelinePost.create(name='John Doe', email='john@example.com', content='Hello world, I\'m John!')
+
         assert first_post.id == 1
+
         first_post = TimelinePost.create(name='Jane Doe', email='jane@example.com', content='Hello world, I\'m Jane!')
         assert first_post.id == 2
+
         # Get Timeline Posts and assert that they are correct
         posts = TimelinePost.select().order_by(TimelinePost.id)
         assert len(posts) == 2
