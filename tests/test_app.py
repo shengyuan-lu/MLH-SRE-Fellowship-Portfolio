@@ -2,16 +2,16 @@
 
 import unittest
 import os
+
 os.environ['TESTING'] = 'True'
 
-from app import app, TimelinePost
+from app import app
+
 class AppTestCase(unittest.TestCase):
     def setUp(self):
         # Bind model classes to test db. Since we have a complete list of
         # all models, we do not need to recursively bind dependencies.
         self.client = app.test_client()
-        # Clean up the TimelinePosts before each test
-        TimelinePost.delete().execute()
 
     def test_home(self):
         response = self.client.get("/")
@@ -20,6 +20,7 @@ class AppTestCase(unittest.TestCase):
         assert "<title>Meet MLH Fellows</title>" in html
         assert "Meet MLH Fellows" in html  
         assert "Shengyuan Lu" in html  
+
 
     def test_timeline(self):
         response = self.client.get("/api/timeline_post")
@@ -39,6 +40,7 @@ class AppTestCase(unittest.TestCase):
         assert json["timeline_posts"][0]["name"] == "John"  
         assert json["timeline_posts"][0]["email"] == "john@example.com" 
         assert json["timeline_posts"][0]["content"] == "Test Content" 
+
 
     def test_malformed_timeline_post(self):
         # POST request with empty name

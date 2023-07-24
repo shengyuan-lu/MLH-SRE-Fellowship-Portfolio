@@ -10,27 +10,62 @@ load_dotenv('example.env')
 app = Flask(__name__)
 app.config['GOOGLE_MAPS_API_KEY'] = os.getenv("google_maps_api_key")
 
-if os.getenv("TESTING") == "true":
+if os.getenv("TESTING") == "True":
+
     print("Running in test mode..")
-    mydb=SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
+
+    mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
+
+    class TimelinePost(Model):
+        name = CharField()
+        email = CharField()
+        content = TextField()
+        created_at = DateTimeField(default=datetime.datetime.now())
+
+        class Meta:
+            database = mydb
+
+    mydb.connect()
+
+    with mydb:
+        mydb.create_tables([TimelinePost], safe=True)
+
+        print("TimelinePost in-memory table created")
+
 else:
-    mydb=MySQLDatabase(os.getenv("MYSQL_DATABASE"), user=os.getenv("MYSQL_USER"), password=os.getenv("MYSQL_PASSWORD"), host=os.getenv("MYSQL_HOST"), port=3306)
 
-class TimelinePost(Model):
-    name = CharField()
-    email = CharField()
-    content = TextField()
-    created_at = DateTimeField(default=datetime.datetime.now())
+    print("Running in normal mode..")
 
-    class Meta:
-        database = mydb
+    mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+                  user=os.getenv("MYSQL_USER"),
+                  password=os.getenv("MYSQL_PASSWORD"),
+                  host=os.getenv("MYSQL_HOST"),
+                  port=3306
+    )
 
-mydb.connect()
-mydb.create_tables([TimelinePost], safe=True)
+    class TimelinePost(Model):
+        name = CharField()
+        email = CharField()
+        content = TextField()
+        created_at = DateTimeField(default=datetime.datetime.now())
+
+        class Meta:
+            database = mydb
+
+    mydb.connect()
+
+    with mydb:
+        mydb.create_tables([TimelinePost], safe=True)
+
+        print("TimelinePost real table created")
+
+
+print(mydb)
 
 @app.route('/')
 def index():
     return render_template('index.html', title="Meet MLH Fellows", url=os.getenv("URL"))
+
 
 @app.route('/shengyuan')
 def shengyuan():
@@ -64,6 +99,7 @@ def shengyuan():
     ]
 
     return render_template('fellow.html', title="Fellow - Shengyuan Lu", fellowname=fellowname, aboutme=aboutme, education=education, work_experiences=work_experiences, hobbies=hobbies, visited_places=visited_places, google_maps_api_key=app.config['GOOGLE_MAPS_API_KEY'], url=os.getenv("URL"))
+
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
