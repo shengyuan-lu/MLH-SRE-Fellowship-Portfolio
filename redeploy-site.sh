@@ -1,5 +1,5 @@
 #!/bin/bash
-cd path
+cd /root/mlh/mlh-sre-portfolio
 
 git fetch && git reset origin/main --hard
 
