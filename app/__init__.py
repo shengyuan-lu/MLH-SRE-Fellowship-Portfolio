@@ -8,12 +8,6 @@ from peewee import *
 load_dotenv('example.env')
 
 app = Flask(__name__)
-print("URL:", os.getenv("URL"))
-print("Database:", os.getenv("MYSQL_DATABASE"))
-print("User:", os.getenv("MYSQL_USER"))
-print("Password:", os.getenv("MYSQL_PASSWORD"))
-print("Host:", os.getenv("MYSQL_HOST"))
-print("Port:", os.getenv("MYSQL_PORT"))
 
 app.config['GOOGLE_MAPS_API_KEY'] = os.getenv("google_maps_api_key")
 
@@ -45,6 +39,10 @@ class TimelinePost(Model):
 @app.before_request
 def before_request():
     mydb.connect()
+
+@app.teardown_request
+def after_request(exception):
+    mydb.close()
 
 @app.before_first_request
 def create_tables():
