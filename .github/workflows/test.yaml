@@ -29,5 +29,8 @@ jobs:
         source python3-virtualenv/bin/activate
         pip install -r requirements.txt
 
+    - name: Make script executable
+      run: chmod +x mlh-sre-portfolio/run-test.sh
+      
     - name: Run tests
       run: ./run-test.sh
